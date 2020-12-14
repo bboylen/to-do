@@ -12,3 +12,29 @@ body {
   background-image: linear-gradient(315deg, #f8f9d2 00%, #e8dbfc 74%);
 }
 
+/* main-content */
+
+.main-content {
+  margin: 4rem auto 0 auto;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  background-color: white;
+}
+
+.side-info {
+  width: 300px;
+  background-color: orange;
+}
+
+.content {
+  flex-grow: 3;
+  flex-shrink: 10;
+  background-color: lightblue;
+}
+
+@media only screen and (max-width: 768px) {
+  .side-info{
+    display: none;
+  }
+}
