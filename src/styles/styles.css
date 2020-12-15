@@ -20,10 +20,9 @@ body {
 }
 
 #page-header .container {
-  width: 30px;
-  min-width: 14%;
+  width: 12rem;
   height: 100%;
-  margin-left: 5%;
+  margin-left: 4rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
