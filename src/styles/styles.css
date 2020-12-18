@@ -116,12 +116,11 @@ body {
 }
 
 .content-container {
-  width: 80%;
+  width: 85%;
   height: 60%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 3rem;
-  background-color: lightblue;
   font-family: "Montserrat", sans-serif;
 }
 
@@ -131,7 +130,7 @@ body {
 }
 
 .list-items {
-  width: 80%;
+  width: 85%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 1rem;
@@ -140,4 +139,11 @@ body {
 .list-items .item {
   display: flex;
   justify-content: space-between;
+  padding: .125rem 0 .25rem 0;
+  margin: .25rem 0 .25rem 0;
+  border-bottom: 2px solid #ffc7bd;
+}
+
+.list-items .item:last-of-type {
+  border: none;
 }

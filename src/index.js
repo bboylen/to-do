@@ -1,3 +1,9 @@
 import "./styles/reset.css";
 import "./styles/styles.css";
-import "./assets/images/notepad.png";
+import {Project, addProjectListeners} from "./modules/projects"
+
+function addInitialListeners() {
+
+}
+
+addProjectListeners();
