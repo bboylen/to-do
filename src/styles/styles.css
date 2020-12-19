@@ -107,6 +107,14 @@ body {
   cursor: pointer;
 }
 
+.add-project a, .add-project input {
+  display: inline-block;
+  font-size: 16px;
+}
+
+.add-project input {
+  width: 3 rem;
+}
 /* main-content */
 
 .content {
