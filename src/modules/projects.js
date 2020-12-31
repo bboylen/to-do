@@ -6,7 +6,6 @@ class Project {
 }
 
 function addProjectListeners() {
-
   // Project List
   let projectList = Array.from(
     document.getElementsByClassName("project-list")[0].children
@@ -25,7 +24,7 @@ function addProjectListeners() {
 function updateProject(event) {
   let projectSelected = event.target;
 
-  switchSidebarProject(projectSelected);  
+  switchSidebarProject(projectSelected);
   switchMainContentProject(projectSelected);
 }
 
@@ -49,20 +48,45 @@ function addProject(event) {
   addProjectDiv.textContent = "";
   addProjectDiv.removeEventListener("click", addProject);
   // create input/buttons
-  
+  let inputWrapper = document.createElement("div");
+  addProjectDiv.appendChild(inputWrapper);
+
   let projectInput = document.createElement("input");
   let projectCreate = document.createElement("a");
   projectCreate.textContent = "Add";
   let projectCancel = document.createElement("a");
   projectCancel.textContent = "Cancel";
   let elements = [projectInput, projectCreate, projectCancel];
-  
+
   // append them to addProjectDiv
   for (let element of elements) {
-    addProjectDiv.appendChild(element);
+    inputWrapper.appendChild(element);
   }
 
   // set click behavior
+  projectCreate.addEventListener("click", createProject);
+  projectCancel.addEventListener("click", cancelProject);
+}
+
+function createProject(event) {
+  let projectInputValue = event.target.parentElement.firstChild.value;
+  let newProject = new Project(projectInputValue);
+  console.log(newProject);
+  document.getElementsByClassName("project-list")[0].append(newProject);
+
+  let projectCreate = event.target; 
+  let addProjectDiv = projectCreate.parentElement.parentElement;
+  
+  while (addProjectDiv.firstChild) {
+    addProjectDiv.removeChild(addProjectDiv.lastChild)
+  }
+
+  addProjectDiv.textContent = "Add Project +"
+  addProjectListeners();
+}
+
+function cancelProject(event) {
+
 }
 
 export { Project, addProjectListeners };

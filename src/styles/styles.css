@@ -98,6 +98,8 @@ body {
   font-weight: 700;
 }
 
+/* add project */ 
+
 .add-project {
   font-size: 20px;
 }
@@ -107,13 +109,43 @@ body {
   cursor: pointer;
 }
 
+.add-project div {
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+  border-radius: 5px;
+  background-color: white;
+  color: white;
+  font-weight: 600;
+}
+
 .add-project a, .add-project input {
   display: inline-block;
   font-size: 16px;
+  padding: 5px 3px 5px 3px;
+
+}
+
+.add-project a:nth-child(2) {
+  background-color:#309c5b;
+}
+
+.add-project a:nth-child(2):hover {
+  background-color:#3bbf70;
+}
+
+.add-project a:nth-child(3) {
+  background-color: #d40000;
+  border-radius: 0 5px 5px 0;
+}
+
+.add-project a:nth-child(3):hover {
+  background-color: #ff0000;
 }
 
 .add-project input {
-  width: 3 rem;
+  width: 58%;
+  border: none;
 }
 /* main-content */
 

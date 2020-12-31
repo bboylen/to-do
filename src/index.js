@@ -5,5 +5,5 @@ import {Project, addProjectListeners} from "./modules/projects"
 function addInitialListeners() {
 
 }
-
+  
 addProjectListeners();
