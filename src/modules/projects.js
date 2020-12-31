@@ -5,6 +5,9 @@ class Project {
   }
 }
 
+// add scroll bar to project list?
+// limit project title length
+
 function addProjectListeners() {
   // Project List
   let projectList = Array.from(
@@ -71,8 +74,12 @@ function addProject(event) {
 function createProject(event) {
   let projectInputValue = event.target.parentElement.firstChild.value;
   let newProject = new Project(projectInputValue);
-  console.log(newProject);
-  document.getElementsByClassName("project-list")[0].append(newProject);
+
+  let projectList = document.getElementsByClassName("project-list")[0];
+  let paraTag = document.createElement("p");
+  paraTag.textContent = newProject.title;
+
+  projectList.appendChild(paraTag);
 
   let projectCreate = event.target; 
   let addProjectDiv = projectCreate.parentElement.parentElement;
