@@ -67,33 +67,47 @@ function addProject(event) {
   }
 
   // set click behavior
-  projectCreate.addEventListener("click", createProject);
-  projectCancel.addEventListener("click", cancelProject);
+  projectCreate.addEventListener("click", createProjectFromEvent);
+  projectCancel.addEventListener("click", closeAddProject);
 }
 
-function createProject(event) {
+function createProjectFromEvent(event) {
   let projectInputValue = event.target.parentElement.firstChild.value;
-  let newProject = new Project(projectInputValue);
+  createProject(projectInputValue);
+  closeAddProject(event);
+}
 
-  let projectList = document.getElementsByClassName("project-list")[0];
+function createProject(title) {
+  let newProject = new Project(title);
+  console.log(newProject);
+
+  let projectList = localStorage.getItem("projectList");
+  projectList = (projectList) ? JSON.parse(projectList) : [];
+  projectList.push(newProject); 
+  window.localStorage.setItem("projectList", JSON.stringify(projectList));
+
+  addProjectDOM(newProject);
+}
+
+function addProjectDOM(project) {
   let paraTag = document.createElement("p");
-  paraTag.textContent = newProject.title;
+  paraTag.textContent = project.title;
 
-  projectList.appendChild(paraTag);
+  let list = document.getElementsByClassName("project-list")[0];
+  paraTag.textContent = project.title;
+  list.appendChild(paraTag);
+}
 
-  let projectCreate = event.target; 
-  let addProjectDiv = projectCreate.parentElement.parentElement;
-  
+function closeAddProject(event) {
+  let addProjectDiv = event.target.parentElement.parentElement;
+
   while (addProjectDiv.firstChild) {
-    addProjectDiv.removeChild(addProjectDiv.lastChild)
+    addProjectDiv.removeChild(addProjectDiv.lastChild);
   }
 
-  addProjectDiv.textContent = "Add Project +"
+  addProjectDiv.textContent = "Add Project +";
+
+  // MOVE THIS
   addProjectListeners();
 }
-
-function cancelProject(event) {
-
-}
-
-export { Project, addProjectListeners };
+export { Project, addProjectListeners, createProject, addProjectDOM};
