@@ -50,6 +50,7 @@ function addProject(event) {
   let addProjectDiv = event.target;
   addProjectDiv.textContent = "";
   addProjectDiv.removeEventListener("click", addProject);
+  
   // create input/buttons
   let inputWrapper = document.createElement("div");
   addProjectDiv.appendChild(inputWrapper);
@@ -68,22 +69,32 @@ function addProject(event) {
 
   // set click behavior
   projectCreate.addEventListener("click", createProjectFromEvent);
-  projectCancel.addEventListener("click", closeAddProject);
+  document.addEventListener("keypress", projectEnter);
+  projectCancel.addEventListener("click", closeAddProjectFromEvent);
+}
+
+function projectEnter(e) {
+  if (e.key === "Enter") {
+    console.log("sdufh")
+    let addProjectDiv = document.getElementsByClassName("add-project")[0];
+    createProject(addProjectDiv.firstChild.firstChild.value);
+    closeAddProject(addProjectDiv);
+    document.removeEventListener("keypress", projectEnter);
+  }
 }
 
 function createProjectFromEvent(event) {
   let projectInputValue = event.target.parentElement.firstChild.value;
   createProject(projectInputValue);
-  closeAddProject(event);
+  closeAddProject(event.target.parentElement.parentElement);
 }
 
 function createProject(title) {
   let newProject = new Project(title);
-  console.log(newProject);
 
   let projectList = localStorage.getItem("projectList");
-  projectList = (projectList) ? JSON.parse(projectList) : [];
-  projectList.push(newProject); 
+  projectList = projectList ? JSON.parse(projectList) : [];
+  projectList.push(newProject);
   window.localStorage.setItem("projectList", JSON.stringify(projectList));
 
   addProjectDOM(newProject);
@@ -98,9 +109,11 @@ function addProjectDOM(project) {
   list.appendChild(paraTag);
 }
 
-function closeAddProject(event) {
-  let addProjectDiv = event.target.parentElement.parentElement;
+function closeAddProjectFromEvent(event) {
+  closeAddProject(event.target.parentElement.parentElement);
+}
 
+function closeAddProject(addProjectDiv) {
   while (addProjectDiv.firstChild) {
     addProjectDiv.removeChild(addProjectDiv.lastChild);
   }
@@ -110,4 +123,4 @@ function closeAddProject(event) {
   // MOVE THIS
   addProjectListeners();
 }
-export { Project, addProjectListeners, createProject, addProjectDOM};
+export { Project, addProjectListeners, createProject, addProjectDOM };
