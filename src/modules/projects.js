@@ -50,7 +50,7 @@ function addProject(event) {
   let addProjectDiv = event.target;
   addProjectDiv.textContent = "";
   addProjectDiv.removeEventListener("click", addProject);
-  
+
   // create input/buttons
   let inputWrapper = document.createElement("div");
   addProjectDiv.appendChild(inputWrapper);
@@ -75,7 +75,6 @@ function addProject(event) {
 
 function projectEnter(e) {
   if (e.key === "Enter") {
-    console.log("sdufh")
     let addProjectDiv = document.getElementsByClassName("add-project")[0];
     createProject(addProjectDiv.firstChild.firstChild.value);
     closeAddProject(addProjectDiv);
@@ -90,6 +89,7 @@ function createProjectFromEvent(event) {
 }
 
 function createProject(title) {
+  // SHOULD FAIL IF TITLE BLANK
   let newProject = new Project(title);
 
   let projectList = localStorage.getItem("projectList");
