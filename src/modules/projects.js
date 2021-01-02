@@ -56,6 +56,7 @@ function addProject(event) {
   addProjectDiv.appendChild(inputWrapper);
 
   let projectInput = document.createElement("input");
+  projectInput.id = "project-input";
   let projectCreate = document.createElement("a");
   projectCreate.textContent = "Add";
   let projectCancel = document.createElement("a");
@@ -76,20 +77,34 @@ function addProject(event) {
 function projectEnter(e) {
   if (e.key === "Enter") {
     let addProjectDiv = document.getElementsByClassName("add-project")[0];
-    createProject(addProjectDiv.firstChild.firstChild.value);
-    closeAddProject(addProjectDiv);
-    document.removeEventListener("keypress", projectEnter);
+    let projectInputValue = addProjectDiv.firstChild.firstChild.value;
+    if (projectInputValue !== "") {
+      createProject(addProjectDiv.firstChild.firstChild.value);
+      closeAddProject(addProjectDiv);
+      document.removeEventListener("keypress", projectEnter);
+    } else {
+      projectCreationFailed();
+    }
   }
 }
 
 function createProjectFromEvent(event) {
   let projectInputValue = event.target.parentElement.firstChild.value;
-  createProject(projectInputValue);
-  closeAddProject(event.target.parentElement.parentElement);
+  if (projectInputValue !== "") {
+    createProject(projectInputValue);
+    closeAddProject(event.target.parentElement.parentElement);
+  } else {
+    projectCreationFailed();
+  }
+}
+
+function projectCreationFailed() {
+  let projectInput = document.getElementById("project-input");
+  projectInput.classList.add("failed");
+  projectInput.placeholder = "Please add title";
 }
 
 function createProject(title) {
-  // SHOULD FAIL IF TITLE BLANK
   let newProject = new Project(title);
 
   let projectList = localStorage.getItem("projectList");

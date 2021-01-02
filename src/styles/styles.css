@@ -147,6 +147,10 @@ body {
   width: 58%;
   border: none;
 }
+
+#project-input.failed {
+  border: 1px solid red;
+}
 /* main-content */
 
 .content {
