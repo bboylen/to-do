@@ -111,7 +111,8 @@ function createProject(title) {
   let newProject = new Project(title);
 
   let projectList = localStorage.getItem("projectList");
-  projectList = projectList ? JSON.parse(projectList) : [];
+  //projectList = projectList ? JSON.parse(projectList) : [];
+  projectList = JSON.parse(projectList);
   projectList.push(newProject);
   window.localStorage.setItem("projectList", JSON.stringify(projectList));
 

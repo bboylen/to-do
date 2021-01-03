@@ -6,14 +6,25 @@ class Task {
   }
 }
 
-function addTask(project, title, description, date) {
+function addTask(selectedProject, title, description, date) {
   let task = new Task(title, description, date);
-  project.tasks.push(task);
-  // add task dom, save project to localstorage
+  selectedProject.tasks.push(task);
+
+  let storedProjects = JSON.parse(localStorage.projectList);
+  storedProjects = storedProjects.map((project) => {
+    if (project.title === selectedProject.title) {
+      return (project = selectedProject);
+    }
+    return project;
+  });
+
+  window.localStorage.setItem("projectList", JSON.stringify(storedProjects));
+
+  populateProjectTasks(selectedProject);
 }
 
 function switchProjectTasks(selectedProjectTitle) {
-  let selectedProject = JSON.parse(window.localStorage.projectList).filter(
+  let selectedProject = JSON.parse(localStorage.projectList).filter(
     (project) => project.title === selectedProjectTitle
   )[0];
 
@@ -25,12 +36,28 @@ function clearProjectTasks() {
   let taskList = document.getElementsByClassName("list-items")[0];
 
   while (taskList.firstChild) {
-    taskList.removeChild(taskList.lastChild)
+    taskList.removeChild(taskList.lastChild);
   }
 }
 
-function populateProjectTasks() {
+function populateProjectTasks(selectedProject) {
+  for (let task of selectedProject.tasks) {
+    console.log("d")
+    let listDiv = document.getElementsByClassName("list-items")[0];
+    let itemDiv = document.createElement("div");
+    itemDiv.classList.add("item");
+    let titleDiv = document.createElement("div");
+    titleDiv.classList.add("title");
+    let dateDiv = document.createElement("div");
+    dateDiv.classList.add("date");
 
+    listDiv.appendChild(itemDiv);
+    itemDiv.appendChild(titleDiv);
+    itemDiv.appendChild(dateDiv);
+
+    titleDiv.textContent = task.title;
+    dateDiv.textContent = task.date;
+  }
 }
 
 export { Task, addTask, switchProjectTasks };

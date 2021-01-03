@@ -4,17 +4,17 @@ import {Project, addProjectListeners, createProject, addProjectDOM} from "./modu
 import {Task, addTask} from "./modules/tasks"
 
 (function initializeProjects() {
-  if (window.localStorage.length > 0) {
+  if (localStorage.length > 0) {
     initStoredProjects();
   } else {
     let projectList = [];
-    window.localStorage.setItem("projectList", projectList);
+    localStorage.setItem("projectList", projectList);
     initDefaultProjects();
   }
 })();
 
 function initStoredProjects() {
-  let projectList = JSON.parse(window.localStorage.projectList);
+  let projectList = JSON.parse(localStorage.projectList);
   // add to DOM
   for (let project of projectList) {
     addProjectDOM(project);
@@ -33,3 +33,9 @@ function addInitialListeners() {
 }
 
 addProjectListeners();
+
+(function saveTask() {
+  let projectList = JSON.parse(localStorage.projectList);
+  let workProject = projectList[0];
+  addTask(workProject, "Run", "Blarg", "2005");
+})();
