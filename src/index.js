@@ -1,6 +1,7 @@
 import "./styles/reset.css";
 import "./styles/styles.css";
 import {Project, addProjectListeners, createProject, addProjectDOM} from "./modules/projects"
+import {Task, addTask} from "./modules/tasks"
 
 (function initializeProjects() {
   if (window.localStorage.length > 0) {

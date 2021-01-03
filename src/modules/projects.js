@@ -1,3 +1,5 @@
+import {switchProjectTasks} from "./tasks"
+
 class Project {
   constructor(title) {
     this.title = title;
@@ -44,6 +46,7 @@ function switchSidebarProject(projectSelected) {
 function switchMainContentProject(projectSelected) {
   let projectSelectedDiv = document.getElementById("project-selected-header");
   projectSelectedDiv.textContent = projectSelected.textContent;
+  switchProjectTasks(projectSelected.textContent);
 }
 
 function addProject(event) {
