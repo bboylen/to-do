@@ -57,4 +57,4 @@ function populateProjectTasks(selectedProject) {
   }
 }
 
-export { Task, addTask, switchProjectTasks };
+export { Task, addTask, switchProjectTasks, populateProjectTasks };

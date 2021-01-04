@@ -16,7 +16,7 @@ function addProjectListeners() {
     document.getElementsByClassName("project-list")[0].children
   );
   projectList.forEach((element) => {
-    element.addEventListener("click", updateProject);
+    element.addEventListener("click", updateProjectFromEvent);
   });
 
   // Add project
@@ -26,9 +26,12 @@ function addProjectListeners() {
 
 // Figure out how to pass projectList as parameter
 
-function updateProject(event) {
+function updateProjectFromEvent(event) {
   let projectSelected = event.target;
+  switchProject(projectSelected);
+}
 
+function switchProject(projectSelected) {
   switchSidebarProject(projectSelected);
   switchMainContentProject(projectSelected);
 }
@@ -141,4 +144,4 @@ function closeAddProject(addProjectDiv) {
   // MOVE THIS
   addProjectListeners();
 }
-export { Project, addProjectListeners, createProject, addProjectDOM };
+export { Project, addProjectListeners, createProject, addProjectDOM, switchProject};
