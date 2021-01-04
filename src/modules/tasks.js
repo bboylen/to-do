@@ -19,8 +19,6 @@ function addTask(selectedProject, title, description, date) {
   });
 
   window.localStorage.setItem("projectList", JSON.stringify(storedProjects));
-
-  populateProjectTasks(selectedProject);
 }
 
 function switchProjectTasks(selectedProjectTitle) {
@@ -42,7 +40,6 @@ function clearProjectTasks() {
 
 function populateProjectTasks(selectedProject) {
   for (let task of selectedProject.tasks) {
-    console.log("d")
     let listDiv = document.getElementsByClassName("list-items")[0];
     let itemDiv = document.createElement("div");
     itemDiv.classList.add("item");

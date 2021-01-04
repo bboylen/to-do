@@ -2,6 +2,7 @@ import "./styles/reset.css";
 import "./styles/styles.css";
 import {Project, addProjectListeners, createProject, addProjectDOM} from "./modules/projects"
 import {Task, addTask} from "./modules/tasks"
+import initDefaultProjects from "./modules/defaultProjects"
 
 (function initializeProjects() {
   if (localStorage.length > 0) {
@@ -14,6 +15,7 @@ import {Task, addTask} from "./modules/tasks"
 })();
 
 function initStoredProjects() {
+  console.log("f")
   let projectList = JSON.parse(localStorage.projectList);
   // add to DOM
   for (let project of projectList) {
@@ -21,12 +23,6 @@ function initStoredProjects() {
   }
 }
 
-function initDefaultProjects() {
-  
-  createProject("Work");
-  createProject("Home");
-  createProject("Health");
-}
 
 function addInitialListeners() {
 
@@ -34,8 +30,3 @@ function addInitialListeners() {
 
 addProjectListeners();
 
-(function saveTask() {
-  let projectList = JSON.parse(localStorage.projectList);
-  let workProject = projectList[0];
-  addTask(workProject, "Run", "Blarg", "2005");
-})();
