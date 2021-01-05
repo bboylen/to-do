@@ -191,3 +191,20 @@ body {
 .list-items .item:last-of-type {
   border: none;
 }
+
+.task-button button {
+  width: 100%;
+  padding: 0;
+  text-align: left;
+  border: none;
+  font-family: "Montserrat", sans-serif;
+  background-color: #f0eee9;
+  color: #999999;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.task-button button:hover {
+  cursor: pointer;
+  color: #e85a4f;
+}

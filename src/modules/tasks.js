@@ -55,6 +55,19 @@ function populateProjectTasks(selectedProject) {
     titleDiv.textContent = task.title;
     dateDiv.textContent = task.date;
   }
+
+  insertAddTaskButton();
+}
+
+function insertAddTaskButton() {
+  let listDiv = document.getElementsByClassName("list-items")[0];
+  let addTaskDiv = document.createElement("div");
+  addTaskDiv.classList.add("item", "task-button");
+  listDiv.appendChild(addTaskDiv);
+
+  let addTaskButton = document.createElement("button");
+  addTaskDiv.appendChild(addTaskButton);
+  addTaskButton.textContent = "Add Task +";
 }
 
 export { Task, addTask, switchProjectTasks, populateProjectTasks };

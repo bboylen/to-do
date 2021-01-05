@@ -25,7 +25,6 @@ function initStoredProjects() {
 }
 
 function initFirstProject() {
-  let firstProject = JSON.parse(localStorage.projectList)[0];
   let firstProjectDiv = document.getElementsByClassName("project-list")[0].firstElementChild;
   switchProject(firstProjectDiv);
 }
