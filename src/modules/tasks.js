@@ -68,6 +68,26 @@ function insertAddTaskButton() {
   let addTaskButton = document.createElement("button");
   addTaskDiv.appendChild(addTaskButton);
   addTaskButton.textContent = "Add Task +";
+  
+  addTaskButton.addEventListener("click", addTaskForm);
+}
+
+function addTaskForm() {
+  let listDiv = document.getElementsByClassName("list-items")[0];
+  listDiv.removeChild(listDiv.lastChild);
+  console.log(generateTaskForm());
+  listDiv.appendChild(generateTaskForm());
+}
+
+function generateTaskForm() {
+  let taskForm = document.createElement("form");
+  taskForm.classList.add("item");
+  taskForm.id = "task-form";
+  let taskDiv = document.createElement("div");
+  taskDiv.classList.add("create-task-div");
+  taskForm.appendChild(taskDiv);
+
+  return taskForm;
 }
 
 export { Task, addTask, switchProjectTasks, populateProjectTasks };

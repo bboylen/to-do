@@ -180,7 +180,7 @@ body {
   margin-top: 1rem;
 }
 
-.list-items .item {
+.list-items div.item {
   display: flex;
   justify-content: space-between;
   padding: .125rem 0 .25rem 0;
@@ -207,4 +207,9 @@ body {
 .task-button button:hover {
   cursor: pointer;
   color: #e85a4f;
+}
+
+.create-task-div {
+  height: 300px;
+  border: 1px solid black;
 }
