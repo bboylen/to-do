@@ -87,6 +87,14 @@ function generateTaskForm() {
   taskDiv.classList.add("create-task-div");
   taskForm.appendChild(taskDiv);
 
+  let titleInput = document.createElement("input");
+  taskDiv.appendChild(titleInput);
+  titleInput.id = "task-title";
+  titleInput.placeholder = "Task title here:"
+  let dateInput = document.createElement("input");
+  taskDiv.appendChild(dateInput);
+  dateInput.id = "task-date";
+
   return taskForm;
 }
 

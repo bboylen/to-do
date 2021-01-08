@@ -156,7 +156,7 @@ body {
 .content {
   flex-grow: 3;
   flex-shrink: 10;
-  background-color: #f0eee9;
+  background-color: #fffff2;
 }
 
 .content-container {
@@ -188,7 +188,7 @@ body {
   border-bottom: 2px solid #ffc7bd;
 }
 
-.list-items .item:last-of-type {
+.list-items .item.task-button {
   border: none;
 }
 
@@ -198,7 +198,7 @@ body {
   text-align: left;
   border: none;
   font-family: "Montserrat", sans-serif;
-  background-color: #f0eee9;
+  background-color: #fffff2;
   color: #999999;
   font-weight: 600;
   font-size: 16px;
@@ -210,6 +210,28 @@ body {
 }
 
 .create-task-div {
-  height: 300px;
-  border: 1px solid black;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  height: 100px;
+  border: 2px solid #999999;
+  border-radius: 5px;
+}
+
+.create-task-div input {
+  display: block;
+  font-size: 16px;
+  background-color: #fffff2;
+}
+
+#task-title {
+  width: 90%;
+  margin-left: 10px;
+  border: none;
+}
+
+#task-date {
+  width: 10%;
+  margin-left: 10px;
+  border: 2px solid #ffc7bd;
 }
