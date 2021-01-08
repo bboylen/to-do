@@ -9,6 +9,7 @@ html {
 }
 
 body {
+  display: block !important;
   height: 100%;
   overflow: hidden;
 }
@@ -231,7 +232,7 @@ body {
 }
 
 #task-date {
-  width: 10%;
+  width: 11%;
   margin-left: 10px;
   border: 2px solid #ffc7bd;
 }

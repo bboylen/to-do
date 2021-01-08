@@ -94,6 +94,7 @@ function generateTaskForm() {
   let dateInput = document.createElement("input");
   taskDiv.appendChild(dateInput);
   dateInput.id = "task-date";
+  dateInput.setAttribute("data-provide", "datepicker");
 
   return taskForm;
 }
