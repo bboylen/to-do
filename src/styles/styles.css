@@ -236,3 +236,19 @@ body {
   margin-left: 10px;
   border: 2px solid #ffc7bd;
 }
+
+#form-submit-div {
+  display: flex;
+  width: 30%;
+  margin-top: 10px;
+  justify-content: space-between;
+}
+
+#form-submit-div input {
+  width: 45%;
+}
+
+#form-submit-button {
+  width: 45%;
+}
+

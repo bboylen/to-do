@@ -96,6 +96,18 @@ function generateTaskForm() {
   dateInput.id = "task-date";
   dateInput.setAttribute("data-provide", "datepicker");
 
+  let submitDiv = document.createElement("div");
+  submitDiv.id = "form-submit-div";
+  taskForm.appendChild(submitDiv);
+  let submitButton = document.createElement("input");
+  submitButton.id = "form-submit-button";
+  submitButton.type = "submit";
+  submitDiv.appendChild(submitButton);
+  let cancelButton = document.createElement("input");
+  cancelButton.id = "form-cancel-button";
+  cancelButton.type = "submit";
+  submitDiv.appendChild(cancelButton);
+
   return taskForm;
 }
 

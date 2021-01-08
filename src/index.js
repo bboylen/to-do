@@ -35,3 +35,4 @@ addProjectListeners();
 // Add ordering for tasks
 // Add expansion for tasks
 // recurring tasks
+// make cdns host locally
