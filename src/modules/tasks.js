@@ -88,8 +88,6 @@ function removeTaskFromStorage(taskDiv) {
     return task.title !== taskTitle
   })
 
-  console.log(selectedProject)
-
   let storedProjects = projectList.map((project) => {
     if (project.title === selectedProject.title) {
       return (project = selectedProject);
@@ -101,7 +99,7 @@ function removeTaskFromStorage(taskDiv) {
 }
 
 function removeTaskFromDOM(taskDiv) {
-
+  taskDiv.remove();
 }
 
 function insertAddTaskButton() {
