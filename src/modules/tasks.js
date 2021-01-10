@@ -52,15 +52,56 @@ function insertTask(task) {
   itemDiv.classList.add("item");
   let titleDiv = document.createElement("div");
   titleDiv.classList.add("title");
-  let dateDiv = document.createElement("div");
-  dateDiv.classList.add("date");
+  let rightSideDiv = document.createElement("div");
+  rightSideDiv.classList.add("date-trash-container");
 
   listDiv.appendChild(itemDiv);
   itemDiv.appendChild(titleDiv);
-  itemDiv.appendChild(dateDiv);
+  itemDiv.appendChild(rightSideDiv);
+
+  let dateDiv = document.createElement("div");
+  dateDiv.classList.add("date");
+  let deleteDiv = document.createElement("div");
+  deleteDiv.classList.add("delete-task");
+
+  rightSideDiv.appendChild(dateDiv);
+  rightSideDiv.appendChild(deleteDiv);
 
   titleDiv.textContent = task.title;
   dateDiv.textContent = task.date;
+
+  deleteDiv.addEventListener("click", deleteTask)
+}
+
+function deleteTask(e) {
+  let taskDiv = e.target.parentElement.parentElement;
+  removeTaskFromStorage(taskDiv);
+  removeTaskFromDOM(taskDiv);
+}
+
+function removeTaskFromStorage(taskDiv) {
+  let taskTitle = taskDiv.firstChild.textContent;
+  let selectedProject = selectProject();
+  let projectList = JSON.parse(localStorage.projectList);
+ 
+  selectedProject.tasks = selectedProject.tasks.filter((task) => {
+    return task.title !== taskTitle
+  })
+
+  console.log(selectedProject)
+
+  let storedProjects = projectList.map((project) => {
+    if (project.title === selectedProject.title) {
+      return (project = selectedProject);
+    }
+    return project;
+  });
+
+  localStorage.setItem("projectList", JSON.stringify(storedProjects));  
+}
+
+function removeTaskFromDOM(taskDiv) {
+
 }
 
 function insertAddTaskButton() {

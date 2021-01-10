@@ -128,15 +128,15 @@ body {
 }
 
 .add-project a:nth-child(2) {
-  background-color:#309c5b;
+  background-color:#4fa300;
 }
 
 .add-project a:nth-child(2):hover {
-  background-color:#3bbf70;
+  background-color:#008234;
 }
 
 .add-project a:nth-child(3) {
-  background-color: #d40000;
+  background-color: #e85a4f;
   border-radius: 0 5px 5px 0;
 }
 
@@ -184,11 +184,36 @@ body {
 .list-items div.item {
   display: flex;
   justify-content: space-between;
+  align-content: center;
   padding: .125rem 0 .25rem 0;
   margin: .25rem 0 .25rem 0;
   border-bottom: 2px solid #ffc7bd;
 }
 
+.date-trash-container {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding-right: 5px;
+}
+
+.date-trash-container .date {
+  margin-right: 10px;
+}
+
+.date-trash-container .delete-task {
+  width: 14px;
+  height: 14px;
+  margin-top: 0px;
+  background-image: url("../assets/images/trashcan.png");
+  background-size: contain;
+  opacity: .3;
+}
+
+.date-trash-container .delete-task:hover {
+  opacity: .6;
+  cursor: pointer;
+}
 .list-items .item.task-button {
   border: none;
 }
@@ -233,20 +258,20 @@ body {
 }
 
 #task-date {
-  width: 11%;
+  width: 88px;
   margin-left: 10px;
   border: 2px solid #ffc7bd;
 }
 
 #form-submit-div {
   display: flex;
-  width: 30%;
+  width: 250px;
   margin-top: 10px;
   justify-content: space-between;
 }
 
 #form-submit-div * {
-  width: 45%;
+  width: 116px;
   padding: 8px;
   border: none;
   color: white;

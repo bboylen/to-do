@@ -33,6 +33,5 @@ addProjectListeners();
 
 // Make dates actual dates 
 // Add ordering for tasks
-// Add expansion for tasks
-// recurring tasks
+// Add expansion for project tab
 // make cdns host locally
