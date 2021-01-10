@@ -1,13 +1,12 @@
 class Task {
-  constructor(title, description, date) {
+  constructor(title, date) {
     this.title = title;
-    this.description = description;
     this.date = date;
   }
 }
 
-function addTask(selectedProject, title, description, date) {
-  let task = new Task(title, description, date);
+function addTask(selectedProject, title, date) {
+  let task = new Task(title, date);
   selectedProject.tasks.push(task);
 
   let storedProjects = JSON.parse(localStorage.projectList);
@@ -122,7 +121,7 @@ function generateTaskForm() {
 function createTaskFromForm(form) {
   let newTask = getTaskFormData(form);
 
-  console.log(newTask)
+  
 }
 
 function getTaskFormData(form) {

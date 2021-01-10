@@ -144,4 +144,8 @@ function closeAddProject(addProjectDiv) {
   // MOVE THIS
   addProjectListeners();
 }
+
+function selectProject() {
+  
+}
 export { Project, addProjectListeners, createProject, addProjectDOM, switchProject};
