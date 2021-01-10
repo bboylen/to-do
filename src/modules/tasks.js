@@ -112,19 +112,32 @@ function generateTaskForm() {
   cancelButton.textContent = "Cancel";
   submitDiv.appendChild(cancelButton);
 
-  // cancelButton.addEventListener("click", cancelTask());
-  // addTaskButtonListeners(submitButton, cancelButton);
-  
+  cancelButton.addEventListener("click", closeTask);
+  taskForm.addEventListener("submit", function(event) {
+    event.preventDefault();
+    createTaskFromForm(event.target);
+  });
 }
 
-function addTaskButtonListeners(submitButton, cancelButton) {
+function createTaskFromForm(form) {
+  let newTask = getTaskFormData(form);
 
-
+  console.log(newTask)
 }
 
-function cancelTask() {
+function getTaskFormData(form) {
+  let formData = {};
+
+  formData.title = form[0].value;
+  formData.date = form[1].value;
+
+  return formData;
+}
+
+function closeTask() {
   let taskForm = document.getElementById("task-form");
   taskForm.remove();
   insertAddTaskButton();
 }
+
 export { Task, addTask, switchProjectTasks, populateProjectTasks };
