@@ -75,7 +75,7 @@ function insertAddTaskButton() {
 function addTaskForm() {
   let listDiv = document.getElementsByClassName("list-items")[0];
   listDiv.removeChild(listDiv.lastChild);
-  listDiv.appendChild(generateTaskForm());
+  generateTaskForm();
 }
 
 function generateTaskForm() {
@@ -85,6 +85,9 @@ function generateTaskForm() {
   let taskDiv = document.createElement("div");
   taskDiv.classList.add("create-task-div");
   taskForm.appendChild(taskDiv);
+
+  let listDiv = document.getElementsByClassName("list-items")[0];
+  listDiv.appendChild(taskForm);
 
   let titleInput = document.createElement("input");
   taskDiv.appendChild(titleInput);
@@ -111,7 +114,7 @@ function generateTaskForm() {
 
   // cancelButton.addEventListener("click", cancelTask());
   // addTaskButtonListeners(submitButton, cancelButton);
-  return taskForm;
+  
 }
 
 function addTaskButtonListeners(submitButton, cancelButton) {
