@@ -146,6 +146,11 @@ function closeAddProject(addProjectDiv) {
 }
 
 function selectProject() {
-  
+  let projectTitle = document.getElementById("project-selected-header").textContent;
+
+  return JSON.parse(localStorage.projectList).filter(
+    project => project.title === projectTitle
+  )[0];
 }
-export { Project, addProjectListeners, createProject, addProjectDOM, switchProject};
+
+export { Project, addProjectListeners, createProject, addProjectDOM, switchProject, selectProject};

@@ -1,3 +1,5 @@
+import {selectProject} from "./projects"
+
 class Task {
   constructor(title, date) {
     this.title = title;
@@ -39,23 +41,26 @@ function clearProjectTasks() {
 
 function populateProjectTasks(selectedProject) {
   for (let task of selectedProject.tasks) {
-    let listDiv = document.getElementsByClassName("list-items")[0];
-    let itemDiv = document.createElement("div");
-    itemDiv.classList.add("item");
-    let titleDiv = document.createElement("div");
-    titleDiv.classList.add("title");
-    let dateDiv = document.createElement("div");
-    dateDiv.classList.add("date");
-
-    listDiv.appendChild(itemDiv);
-    itemDiv.appendChild(titleDiv);
-    itemDiv.appendChild(dateDiv);
-
-    titleDiv.textContent = task.title;
-    dateDiv.textContent = task.date;
+    insertTask(task);
   }
-
   insertAddTaskButton();
+}
+
+function insertTask(task) {
+  let listDiv = document.getElementsByClassName("list-items")[0];
+  let itemDiv = document.createElement("div");
+  itemDiv.classList.add("item");
+  let titleDiv = document.createElement("div");
+  titleDiv.classList.add("title");
+  let dateDiv = document.createElement("div");
+  dateDiv.classList.add("date");
+
+  listDiv.appendChild(itemDiv);
+  itemDiv.appendChild(titleDiv);
+  itemDiv.appendChild(dateDiv);
+
+  titleDiv.textContent = task.title;
+  dateDiv.textContent = task.date;
 }
 
 function insertAddTaskButton() {
@@ -111,7 +116,7 @@ function generateTaskForm() {
   cancelButton.textContent = "Cancel";
   submitDiv.appendChild(cancelButton);
 
-  cancelButton.addEventListener("click", closeTask);
+  cancelButton.addEventListener("click", closeAddTask);
   taskForm.addEventListener("submit", function(event) {
     event.preventDefault();
     createTaskFromForm(event.target);
@@ -120,20 +125,20 @@ function generateTaskForm() {
 
 function createTaskFromForm(form) {
   let newTask = getTaskFormData(form);
-
-  
+  let project = selectProject();
+  addTask(project, newTask.title, newTask.date);
+  document.getElementById("task-form").remove();
+  insertTask(newTask);
+  insertAddTaskButton();
 }
 
 function getTaskFormData(form) {
-  let formData = {};
-
-  formData.title = form[0].value;
-  formData.date = form[1].value;
-
-  return formData;
+  let title = form[0].value;
+  let date = form[1].value;
+  return new Task(title, date);
 }
 
-function closeTask() {
+function closeAddTask() {
   let taskForm = document.getElementById("task-form");
   taskForm.remove();
   insertAddTaskButton();
