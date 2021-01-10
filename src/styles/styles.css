@@ -217,6 +217,7 @@ body {
   height: 100px;
   border: 2px solid #999999;
   border-radius: 5px;
+  margin-top: 10px;
 }
 
 .create-task-div input {
@@ -244,11 +245,21 @@ body {
   justify-content: space-between;
 }
 
-#form-submit-div input {
+#form-submit-div * {
   width: 45%;
+  padding: 8px;
+  border: none;
+  color: white;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 5%;
+  text-align: center;
 }
 
 #form-submit-button {
-  width: 45%;
+  background-color: #4fa300;
 }
 
+#form-cancel-button {
+  background-color: #e85a4f;
+}

@@ -75,7 +75,6 @@ function insertAddTaskButton() {
 function addTaskForm() {
   let listDiv = document.getElementsByClassName("list-items")[0];
   listDiv.removeChild(listDiv.lastChild);
-  console.log(generateTaskForm());
   listDiv.appendChild(generateTaskForm());
 }
 
@@ -94,6 +93,7 @@ function generateTaskForm() {
   let dateInput = document.createElement("input");
   taskDiv.appendChild(dateInput);
   dateInput.id = "task-date";
+  dateInput.placeholder = "Date:"
   dateInput.setAttribute("data-provide", "datepicker");
 
   let submitDiv = document.createElement("div");
@@ -102,13 +102,26 @@ function generateTaskForm() {
   let submitButton = document.createElement("input");
   submitButton.id = "form-submit-button";
   submitButton.type = "submit";
+  submitButton.value = "Create Task";
   submitDiv.appendChild(submitButton);
-  let cancelButton = document.createElement("input");
+  let cancelButton = document.createElement("button");
   cancelButton.id = "form-cancel-button";
-  cancelButton.type = "submit";
+  cancelButton.textContent = "Cancel";
   submitDiv.appendChild(cancelButton);
 
+  // cancelButton.addEventListener("click", cancelTask());
+  // addTaskButtonListeners(submitButton, cancelButton);
   return taskForm;
 }
 
+function addTaskButtonListeners(submitButton, cancelButton) {
+
+
+}
+
+function cancelTask() {
+  let taskForm = document.getElementById("task-form");
+  taskForm.remove();
+  insertAddTaskButton();
+}
 export { Task, addTask, switchProjectTasks, populateProjectTasks };
