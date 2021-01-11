@@ -30,6 +30,14 @@ body {
   align-items: center;
 }
 
+#project-tab-toggle {
+  background-image: url("../assets/images/Hamburger_icon.svg.png");
+  background-size: contain;
+  width: 30px;
+  height: 30px;
+  display: none;
+}
+
 #notepad-image {
   background-image: url("../assets/images/notepad.png");
   background-size: contain;
@@ -53,6 +61,19 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
+  #page-header .container {
+    width: 17.25rem;
+    margin-left: 0.75rem;
+  }
+
+  #project-tab-toggle {
+    display: block;
+    margin-right: 2.75rem;
+  }
+
+  #project-tab-toggle:hover {
+    cursor: pointer;
+  }
   .side-info {
     display: none;
   }
