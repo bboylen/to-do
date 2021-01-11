@@ -169,10 +169,22 @@ body {
   font-family: "Montserrat", sans-serif;
 }
 
-.content-container h1 {
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#project-selected-header {
   font-weight: 600;
   font-size: 32px;
 }
+
+/* #sort-option {
+  margin-right: 55px;
+  font-weight: 600;
+  font-size: 18px;
+} */
 
 .list-items {
   width: 85%;

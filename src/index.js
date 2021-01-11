@@ -1,7 +1,6 @@
 import "./styles/reset.css";
 import "./styles/styles.css";
-import {Project, addProjectListeners, createProject, addProjectDOM, switchProject} from "./modules/projects"
-import {Task, addTask, populateProjectTasks} from "./modules/tasks"
+import {addProjectListeners, addProjectDOM, switchProject} from "./modules/projects"
 import initDefaultProjects from "./modules/defaultProjects"
 
 (function initializeProjects() {
@@ -31,7 +30,6 @@ function initFirstProject() {
 
 addProjectListeners();
 
-// Make dates actual dates 
 // Add ordering for tasks
 // Add expansion for project tab
 // make cdns host locally

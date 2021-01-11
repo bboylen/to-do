@@ -87,6 +87,7 @@ function projectEnter(e) {
     if (projectInputValue !== "") {
       createProject(addProjectDiv.firstChild.firstChild.value);
       closeAddProject(addProjectDiv);
+      addProjectListeners();
       document.removeEventListener("keypress", projectEnter);
     } else {
       projectCreationFailed();
@@ -99,6 +100,7 @@ function createProjectFromEvent(event) {
   if (projectInputValue !== "") {
     createProject(projectInputValue);
     closeAddProject(event.target.parentElement.parentElement);
+    addProjectListeners();
   } else {
     projectCreationFailed();
   }
@@ -132,6 +134,7 @@ function addProjectDOM(project) {
 
 function closeAddProjectFromEvent(event) {
   closeAddProject(event.target.parentElement.parentElement);
+  addProjectListeners();
 }
 
 function closeAddProject(addProjectDiv) {
@@ -140,9 +143,6 @@ function closeAddProject(addProjectDiv) {
   }
 
   addProjectDiv.textContent = "Add Project +";
-
-  // MOVE THIS
-  addProjectListeners();
 }
 
 function selectProject() {
