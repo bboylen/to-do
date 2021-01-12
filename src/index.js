@@ -7,19 +7,19 @@ import initDefaultProjects from "./modules/defaultProjects"
   if (localStorage.length > 0) {
     initStoredProjects();
     initFirstProject();
-    addProjectListeners();
+    addListeners();
   } else {
     let projectList = [];
     localStorage.setItem("projectList", projectList);
     initDefaultProjects();
     initFirstProject();
-    addProjectListeners();
+    addListeners();
   }
 })();
 
 function initStoredProjects() {
   let projectList = JSON.parse(localStorage.projectList);
-  // add to DOM
+  
   for (let project of projectList) {
     addProjectDOM(project);
   }
@@ -30,10 +30,16 @@ function initFirstProject() {
   switchProject(firstProjectDiv);
 }
 
-(function addtoggleSideBarListener() {
+function addListeners() {
+  addProjectListeners();
+  addtoggleSideBarListener();
+  addSideBarListener();
+}
+
+function addtoggleSideBarListener() {
   let sideToggle = document.getElementById("project-tab-toggle");
   sideToggle.addEventListener("click", toggleSideBar);
-})();
+};
 
 function toggleSideBar(event) {
   let sideToggle = event.target;
@@ -45,9 +51,9 @@ function toggleSideBar(event) {
   }
 }
 
-(function addSideBarListener() {
+function addSideBarListener() {
   window.addEventListener("resize", addSideToggleBehavior)
-})();
+};
 
 function addSideToggleBehavior() {
   let sideBar = document.getElementsByClassName("side-info")[0];
@@ -56,7 +62,4 @@ function addSideToggleBehavior() {
   }
 }
 
-// Add ordering for tasks
-// Add expansion for project tab
-// make cdns host locally
-//add scroll bar for projects
+// add date sort

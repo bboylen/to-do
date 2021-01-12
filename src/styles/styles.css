@@ -78,10 +78,6 @@ body {
   .side-info {
     display: none;
   }
-
-  /* .side-info.activated {
-    display: block;
-  } */
 }
 
 @media only screen and (max-height: 400px) {
