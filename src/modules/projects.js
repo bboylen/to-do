@@ -7,11 +7,7 @@ class Project {
   }
 }
 
-// add scroll bar to project list?
-// limit project title length
-
 function addProjectListeners() {
-  // Project List
   let projectList = Array.from(
     document.getElementsByClassName("project-list")[0].children
   );
@@ -19,12 +15,9 @@ function addProjectListeners() {
     element.addEventListener("click", updateProjectFromEvent);
   });
 
-  // Add project
   let addProjectDiv = document.getElementsByClassName("add-project")[0];
   addProjectDiv.addEventListener("click", addProject);
 }
-
-// Figure out how to pass projectList as parameter
 
 function updateProjectFromEvent(event) {
   let projectSelected = event.target;
@@ -57,7 +50,6 @@ function addProject(event) {
   addProjectDiv.textContent = "";
   addProjectDiv.removeEventListener("click", addProject);
 
-  // create input/buttons
   let inputWrapper = document.createElement("div");
   addProjectDiv.appendChild(inputWrapper);
 
@@ -69,12 +61,10 @@ function addProject(event) {
   projectCancel.textContent = "Cancel";
   let elements = [projectInput, projectCreate, projectCancel];
 
-  // append them to addProjectDiv
   for (let element of elements) {
     inputWrapper.appendChild(element);
   }
 
-  // set click behavior
   projectCreate.addEventListener("click", createProjectFromEvent);
   document.addEventListener("keypress", projectEnter);
   projectCancel.addEventListener("click", closeAddProjectFromEvent);
