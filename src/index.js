@@ -38,8 +38,26 @@ function initFirstProject() {
 function toggleSideBar(event) {
   let sideToggle = event.target;
   let sideBar = document.getElementsByClassName("side-info")[0];
-  sideBar.style.display = "block";
+  if (sideBar.classList.contains("activated")) {
+    sideBar.classList.remove("activated");
+  } else {
+    sideBar.classList.add("activated");
+  }
 }
+
+(function addSideBarListener() {
+  window.addEventListener("resize", addSideToggleBehavior)
+})();
+
+function addSideToggleBehavior() {
+  let sideBar = document.getElementsByClassName("side-info")[0];
+  console.log("f");
+  if (window.innerWidth > 768) {
+    sideBar.classList.remove("activated");
+  }
+}
+
 // Add ordering for tasks
 // Add expansion for project tab
 // make cdns host locally
+//add scroll bar for projects
