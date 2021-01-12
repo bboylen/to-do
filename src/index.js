@@ -51,7 +51,6 @@ function toggleSideBar(event) {
 
 function addSideToggleBehavior() {
   let sideBar = document.getElementsByClassName("side-info")[0];
-  console.log("f");
   if (window.innerWidth > 768) {
     sideBar.classList.remove("activated");
   }
