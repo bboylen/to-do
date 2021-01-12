@@ -77,9 +77,14 @@ body {
   .side-info {
     display: none;
   }
+
+  /* .side-info.activated {
+    display: block;
+  } */
 }
 
 /* side-info */
+
 
 .side-info {
   width: 300px;

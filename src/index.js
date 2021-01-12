@@ -7,11 +7,13 @@ import initDefaultProjects from "./modules/defaultProjects"
   if (localStorage.length > 0) {
     initStoredProjects();
     initFirstProject();
+    addProjectListeners();
   } else {
     let projectList = [];
     localStorage.setItem("projectList", projectList);
     initDefaultProjects();
     initFirstProject();
+    addProjectListeners();
   }
 })();
 
@@ -28,8 +30,16 @@ function initFirstProject() {
   switchProject(firstProjectDiv);
 }
 
-addProjectListeners();
+(function addtoggleSideBarListener() {
+  let sideToggle = document.getElementById("project-tab-toggle");
+  sideToggle.addEventListener("click", toggleSideBar);
+})();
 
+function toggleSideBar(event) {
+  let sideToggle = event.target;
+  let sideBar = document.getElementsByClassName("side-info")[0];
+  sideBar.style.display = "block";
+}
 // Add ordering for tasks
 // Add expansion for project tab
 // make cdns host locally

@@ -153,4 +153,14 @@ function selectProject() {
   )[0];
 }
 
+(function addSideBarListener() {
+  window.addEventListener("resize", addSideToggleBehavior)
+})();
+
+function addSideToggleBehavior() {
+  if (window.innerWidth <= 768) {
+    console.log("hih");
+  }
+}
+
 export { Project, addProjectListeners, createProject, addProjectDOM, switchProject, selectProject};
