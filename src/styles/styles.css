@@ -93,12 +93,12 @@ body {
     top: 0;
     left: 0;
     height: 100%;
-    opacity: .95;
   }
 
 .side-info {
   width: 300px;
   background-color: #ffc7bd;
+  z-index: 2;
 }
 
 .side-content {
@@ -252,6 +252,7 @@ body {
   background-image: url("../assets/images/trashcan.png");
   background-size: contain;
   opacity: .3;
+  z-index: 1;
 }
 
 .date-trash-container .delete-task:hover {
