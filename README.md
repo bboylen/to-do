@@ -11,7 +11,7 @@ Built for compatibility with both desktop and phone.
 ![desktop-image](https://user-images.githubusercontent.com/52515015/104399900-3cf17d00-5517-11eb-80b9-f65dde0dd86d.png)
 
 ![phone-image](https://user-images.githubusercontent.com/52515015/104399649-b2a91900-5516-11eb-9d86-8bee785565a4.png)
-![phone-sidebar-image](https://user-images.githubusercontent.com/52515015/104399554-87bec500-5516-11eb-813d-67c2be37c65c.png)
+![phone-sidebar-image](https://user-images.githubusercontent.com/52515015/104531569-0e85a780-55d4-11eb-8d89-c35e4a599aa1.png)
 
 ## Features
 
