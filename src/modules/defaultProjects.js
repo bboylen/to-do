@@ -1,11 +1,11 @@
-import {createProject} from "./projects"
-import {addTask} from "./tasks"
+import { createProject } from "./projects";
+import { addTask } from "./tasks";
 
 function initDefaultProjects() {
   createProject("Work");
   createProject("Home");
   createProject("Health");
-  
+
   createWorkTasks();
   createHomeTasks();
   createHealthTasks();
@@ -13,7 +13,7 @@ function initDefaultProjects() {
 
 function createWorkTasks() {
   let workProject = JSON.parse(localStorage.projectList).filter(
-    project => project.title === "Work"
+    (project) => project.title === "Work"
   )[0];
 
   addTask(workProject, "Code", "12/20/20");
@@ -23,7 +23,7 @@ function createWorkTasks() {
 
 function createHomeTasks() {
   let homeProject = JSON.parse(localStorage.projectList).filter(
-    project => project.title === "Home"
+    (project) => project.title === "Home"
   )[0];
 
   addTask(homeProject, "Clean bathroom", "01/05/21");
@@ -33,7 +33,7 @@ function createHomeTasks() {
 
 function createHealthTasks() {
   let healthProject = JSON.parse(localStorage.projectList).filter(
-    project => project.title === "Health"
+    (project) => project.title === "Health"
   )[0];
 
   addTask(healthProject, "Lift Weights", "01/05/21");
@@ -41,4 +41,4 @@ function createHealthTasks() {
   addTask(healthProject, "Rock Climb", "01/07/21");
 }
 
-export default initDefaultProjects; 
+export default initDefaultProjects;

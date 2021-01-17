@@ -1,4 +1,4 @@
-import {switchProjectTasks} from "./tasks"
+import { switchProjectTasks } from "./tasks";
 
 class Project {
   constructor(title) {
@@ -136,12 +136,19 @@ function closeAddProject(addProjectDiv) {
 }
 
 function selectProject() {
-  let projectTitle = document.getElementById("project-selected-header").textContent;
+  let projectTitle = document.getElementById("project-selected-header")
+    .textContent;
 
   return JSON.parse(localStorage.projectList).filter(
-    project => project.title === projectTitle
+    (project) => project.title === projectTitle
   )[0];
 }
 
-
-export { Project, addProjectListeners, createProject, addProjectDOM, switchProject, selectProject};
+export {
+  Project,
+  addProjectListeners,
+  createProject,
+  addProjectDOM,
+  switchProject,
+  selectProject,
+};

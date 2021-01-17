@@ -1,4 +1,4 @@
-import {selectProject} from "./projects"
+import { selectProject } from "./projects";
 
 class Task {
   constructor(title, date) {
@@ -70,7 +70,7 @@ function insertTask(task) {
   titleDiv.textContent = task.title;
   dateDiv.textContent = task.date;
 
-  deleteDiv.addEventListener("click", deleteTask)
+  deleteDiv.addEventListener("click", deleteTask);
 }
 
 function deleteTask(e) {
@@ -83,10 +83,10 @@ function removeTaskFromStorage(taskDiv) {
   let taskTitle = taskDiv.firstChild.textContent;
   let selectedProject = selectProject();
   let projectList = JSON.parse(localStorage.projectList);
- 
+
   selectedProject.tasks = selectedProject.tasks.filter((task) => {
-    return task.title !== taskTitle
-  })
+    return task.title !== taskTitle;
+  });
 
   let storedProjects = projectList.map((project) => {
     if (project.title === selectedProject.title) {
@@ -95,7 +95,7 @@ function removeTaskFromStorage(taskDiv) {
     return project;
   });
 
-  localStorage.setItem("projectList", JSON.stringify(storedProjects));  
+  localStorage.setItem("projectList", JSON.stringify(storedProjects));
 }
 
 function removeTaskFromDOM(taskDiv) {
@@ -111,7 +111,7 @@ function insertAddTaskButton() {
   let addTaskButton = document.createElement("button");
   addTaskDiv.appendChild(addTaskButton);
   addTaskButton.textContent = "Add Task +";
-  
+
   addTaskButton.addEventListener("click", addTaskForm);
 }
 
@@ -135,11 +135,11 @@ function generateTaskForm() {
   let titleInput = document.createElement("input");
   taskDiv.appendChild(titleInput);
   titleInput.id = "task-title";
-  titleInput.placeholder = "Task title here:"
+  titleInput.placeholder = "Task title here:";
   let dateInput = document.createElement("input");
   taskDiv.appendChild(dateInput);
   dateInput.id = "task-date";
-  dateInput.placeholder = "Date:"
+  dateInput.placeholder = "Date:";
   dateInput.setAttribute("data-provide", "datepicker");
 
   let submitDiv = document.createElement("div");
@@ -156,7 +156,7 @@ function generateTaskForm() {
   submitDiv.appendChild(cancelButton);
 
   cancelButton.addEventListener("click", closeAddTask);
-  taskForm.addEventListener("submit", function(event) {
+  taskForm.addEventListener("submit", function (event) {
     event.preventDefault();
     createTaskFromForm(event.target);
   });

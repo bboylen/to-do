@@ -1,7 +1,11 @@
 import "./styles/reset.css";
 import "./styles/styles.css";
-import {addProjectListeners, addProjectDOM, switchProject} from "./modules/projects"
-import initDefaultProjects from "./modules/defaultProjects"
+import {
+  addProjectListeners,
+  addProjectDOM,
+  switchProject,
+} from "./modules/projects";
+import initDefaultProjects from "./modules/defaultProjects";
 
 (function initializeProjects() {
   if (localStorage.length > 0) {
@@ -19,14 +23,15 @@ import initDefaultProjects from "./modules/defaultProjects"
 
 function initStoredProjects() {
   let projectList = JSON.parse(localStorage.projectList);
-  
+
   for (let project of projectList) {
     addProjectDOM(project);
   }
 }
 
 function initFirstProject() {
-  let firstProjectDiv = document.getElementsByClassName("project-list")[0].firstElementChild;
+  let firstProjectDiv = document.getElementsByClassName("project-list")[0]
+    .firstElementChild;
   switchProject(firstProjectDiv);
 }
 
@@ -39,10 +44,9 @@ function addListeners() {
 function addtoggleSideBarListener() {
   let sideToggle = document.getElementById("project-tab-toggle");
   sideToggle.addEventListener("click", toggleSideBar);
-};
+}
 
-function toggleSideBar(event) {
-  let sideToggle = event.target;
+function toggleSideBar() {
   let sideBar = document.getElementsByClassName("side-info")[0];
   if (sideBar.classList.contains("activated")) {
     sideBar.classList.remove("activated");
@@ -52,8 +56,8 @@ function toggleSideBar(event) {
 }
 
 function addSideBarListener() {
-  window.addEventListener("resize", addSideToggleBehavior)
-};
+  window.addEventListener("resize", addSideToggleBehavior);
+}
 
 function addSideToggleBehavior() {
   let sideBar = document.getElementsByClassName("side-info")[0];
@@ -61,5 +65,3 @@ function addSideToggleBehavior() {
     sideBar.classList.remove("activated");
   }
 }
-
-// add date sort
