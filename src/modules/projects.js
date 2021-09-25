@@ -116,9 +116,7 @@ function createProject(title) {
 function addProjectDOM(project) {
   let paraTag = document.createElement("p");
   paraTag.textContent = project.title;
-
   let list = document.getElementsByClassName("project-list")[0];
-  paraTag.textContent = project.title;
   list.appendChild(paraTag);
 }
 

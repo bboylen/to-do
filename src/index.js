@@ -7,6 +7,7 @@ import {
 } from "./modules/projects";
 import initDefaultProjects from "./modules/defaultProjects";
 
+// IIFE that initializes initial projects, either loading from local storage or by generating defaults
 (function initializeProjects() {
   if (localStorage.length > 0) {
     initStoredProjects();
