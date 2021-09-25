@@ -29,14 +29,13 @@ function switchProject(projectSelected) {
   switchMainContentProject(projectSelected);
 }
 
-function switchSidebarProject(projectSelected) {
-  projectSelected.classList.add("selected");
+function switchSidebarProject(projectSelected) {  
   let projectList = Array.from(
     document.getElementsByClassName("project-list")[0].children
   );
 
-  let notSelected = projectList.filter((project) => project != projectSelected);
-  for (let project of notSelected) project.classList.remove("selected");
+  for (let project of projectList) project.classList.remove("selected");
+  projectSelected.classList.add("selected");
 }
 
 function switchMainContentProject(projectSelected) {
