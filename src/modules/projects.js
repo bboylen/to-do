@@ -20,8 +20,7 @@ function addProjectListeners() {
 }
 
 function updateProjectFromEvent(event) {
-  let projectSelected = event.target;
-  switchProject(projectSelected);
+  switchProject(event.target);
 }
 
 function switchProject(projectSelected) {
@@ -29,7 +28,7 @@ function switchProject(projectSelected) {
   switchMainContentProject(projectSelected);
 }
 
-function switchSidebarProject(projectSelected) {  
+function switchSidebarProject(projectSelected) {
   let projectList = Array.from(
     document.getElementsByClassName("project-list")[0].children
   );
@@ -133,8 +132,9 @@ function closeAddProject(addProjectDiv) {
 }
 
 function selectProject() {
-  let projectTitle = document.getElementById("project-selected-header")
-    .textContent;
+  let projectTitle = document.getElementById(
+    "project-selected-header"
+  ).textContent;
 
   return JSON.parse(localStorage.projectList).filter(
     (project) => project.title === projectTitle
